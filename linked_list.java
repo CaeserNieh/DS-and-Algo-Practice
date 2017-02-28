@@ -5,6 +5,7 @@ class Data{
 	String name;
 	int age;
 }
+
 class CLType{
 	Data nodeData = new Data();
 	CLType nextNode;
@@ -125,7 +126,6 @@ class CLType{
 	}// CLAllNode()
 	
 }
-
 
 public class linked_list {
 	public static void main(String[] args){
