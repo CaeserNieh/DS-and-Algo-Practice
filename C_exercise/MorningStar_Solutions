@@ -1,0 +1,169 @@
+1. 要確認特定bit是true or false要用哪個bitwise operator? (選擇題)
+a 
+a & (1 << 6)
+00010
+
+
+2. gcc的哪個flag會在compile的時候保留debug資訊？ (選擇題) 
+Sol : -g
+
+
+3.
+- int
+Sol : int a;
+
+- pointer
+Sol : int *b;
+
+- 10 integer array
+Sol : int c[10];
+
+- pointer to array
+Sol : 
+
+- function pointer
+- function pointer contains 10 pointers
+
+4. #define SET_BIT (variable, bit)	//bit是要set、clear第幾個bit
+   #define CLR_BIT (variable, bit)
+
+5. 
+#define MY_SIZEOF (variable)
+
+
+
+6.
+int a = 5, b = 6, c;
+c = a+++b;
+print a, b, c
+
+Solutions : 
+其實是undefine behavior 
+不同的compiler  a+++b不一樣  GCC GNU 等
+大部分是
+a+++b =   (a++) + (b)
+在a+b後再increment
+5+6 = 11
+11+1 = 12
+
+
+7.
+unsigned int A = -1;
+int B = ~0;
+
+if (A == B)
+	printf("the same")
+else
+	printf("Not the same");
+
+
+Solutions : 
+int 長度 4byte = 32 bits signed
+max_int 2^16=65536
+~是反向 意思是  0->1  1->0
+8位數 00000000  ~ FFFFFFFF
+B = 00000000 - > 11111111
+11111111 在C語言中是-1
+因為在C語言中是用2的補數
+所以A==B
+
+
+8. 
+void FOO (char* s)
+{
+	s = malloc(100);
+	strcpy(s, "Bob");
+}
+
+char *a = "Alice";
+char *name = a;
+
+FOO(name);
+
+printf("%s\n", name);
+
+Sol :
+因為是複製一份記憶體位置到S
+所以原本的name沒有改
+參考資料 : 
+http://www.victorgau.com/?p=503
+
+
+
+9. 解釋下列
+
+const int a;
+a的值不能更動
+
+const int *p = &a;
+p可改 a不能
+
+int *p const = &a;
+p不能改 a可
+
+int const *a const;
+p不能改 a不能改
+
+
+10.  請問執行完後，j的值是多少?
+int M(int i){
+  static count = 0;
+  count = count + i;
+  return count;
+}
+
+int i, j;
+for(int i=0 ; i<=4 ; ++i){
+  j = M(i);
+}
+
+因為static的關係
+第1次loop  count = 1
+第2次loop  count = 2
+第3次loop  count = 3
+第4次loop  count = 4
+
+
+
+
+
+
+口試題
+1. process v.s. thread
+2. mutex, semaphore，binary semaphore跟mutex差在哪
+3. code section, data section放在memory的哪裡
+4. stack v.s. heap, malloc分配的記憶體是哪一塊
+5. static
+6. race condition
+7. muliti-thread怎麼做serialization, synchronization
+8. process間可以怎麼互傳
+9. Linux的user space跟system space如何溝通
+10. 用你的話解釋OS在幹嘛
+11. Deadlock條件
+12. critical section在幹嘛
+13. 對Linux的了解有多少
+14. gcc的參數裡面加上-l代表link的意思，請問static library跟dynamic library的差異？
+15. MACRO跟inline的差別?
+16. MACRO的缺點?
+17. 舉出race condition和deadlock的程式碼實例？   舉出來後，會問你該怎麼解決?
+18. 甚麼情況會發生stack overflow?
+19. 該怎麼解決stack overflow?
+20. 請說明貝式理論?  甚麼情況會使P(x|y) = P(x)?
+21. 已知有一變數int a = 10;    &a+1會發生甚麼事?  
+
+
+白板題
+1. 寫一個swap？傳變數進swap時是call by value還是call by reference？
+
+2. #define SUM(A, B) A+B
+   SUM(1,2)*3 = ?
+   Why? And How to correct the macro?
+
+
+3. 真值表(AND, OR, XOR)
+
+4. deadlock
+
+5. ++a, a++
+
+6. 寫linked list
