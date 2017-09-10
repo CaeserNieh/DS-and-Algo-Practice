@@ -35,10 +35,41 @@ printf(*(p+3)) //arr[3]
 
 - function pointer
 Sol : 
+int add(int n1,int n2){
+        return n1+n2;
+}
+int main(){
+        int (*fptr)(int , int);
+        fptr = add;
 
+        int num1 = 10,num2 = 30;
+
+        printf("num1 + num2 is : %d\n",fptr(num1,num2));
+        return 0;
+}
+// from 小高
 
 
 - function pointer contains 10 pointers
+Sol :
+
+int ten_pointer(int *n1,int *n2,int *n3){
+        return (*n1)+(*n2)+(*n3);
+}
+
+int (*tenfptr)(int*,int*,int*);
+tenfptr = ten_pointer;
+int v1 = 101;
+int v2 = 22;
+int v3 = 33;
+int *pv1,*pv2,*pv3;
+pv1 = &v1;
+pv2 = &v2;
+pv3 = &v3;
+printf("easy function pointer : %d\n",tenfptr(pv1,pv2,pv3));
+
+
+
 
 4. #define SET_BIT (variable, bit)	//bit是要set、clear第幾個bit
    #define CLR_BIT (variable, bit)
