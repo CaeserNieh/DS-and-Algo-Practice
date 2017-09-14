@@ -152,6 +152,52 @@ for(int i=0 ; i<=4 ; ++i){
 21. 已知有一變數int a = 10;    &a+1會發生甚麼事?  
 
 
+Sol : 
+1. process vs thread
+
+https://hackpad.com/ep/pad/static/5TOjUJI2rKu
+
+process 之間的address space並不相同，thread則共用相同的address space
+
+Process : 已經背load到記憶體中了，隨時都有可能被CPU執行
+一個多工的系統(multitasking system)可以同時運行多的process 每一個CPU一次只能做一件事情，如果process數目超過cpu個數
+那就需要scheduling的技術 (FIFO,Round Robin等)
+每個process間在記憶體中擺放的位置不好 會產生記憶體外部碎片 因此memory management是一個問題。
+
+每個Process所需要的記憶體總合，也可能大於實體記憶體，因此需要另
+         外用二次儲存裝置充當虛擬記憶體(Virtual Memory)，但是二次儲存裝置的速
+         度肯定很慢，因此如何做到對虛擬記憶體最小的依賴，盡量避免Page Fault(電
+         腦在主記憶體中找不到資料，而要去二次記憶體找，就稱為Page Fault)
+         防止Thrashing的發生(因為Virtual Memory演算法不當，造成幾乎每次存取都要
+         依賴二次記憶體，就是Thrashing)，以達到效能最佳化，也是個學問
+
+
+Thread :
+在同一個process底下，可以有許多的thread。以往process一次只能做一件事情
+因此如果要一面聽音樂 一面查詢 就需要有multithread 
+1個process底下可以有很多個thread 一個process的global variable可以讓所有的thread共享
+所有的thread可存取共同的global value，也能有自己的local value
+因為可以存取共同的值，有可能會有錯誤的情況發生，同部問題發生
+這就是Synchronization問題 =>恐龍本第六章
+         又，每一個Thread之間可能會互搶資源，而造成死結(Deadlock)，只要以下四
+         個條件都滿足就有死結。(1)這個資源不能同時給兩個人用 (2)有一個人拿了一
+         個資源，又想拿別人的資源 (3)如果一個人占了茅坑不拉屎，占用資源很久，仍
+         不能趕他走 (4)A等B，B等C，C等D，D又等A 等成一圈
+
+mutuex  semaphore 的作用
+
+12.
+臨界區段（Critical section）指的是一個存取共用資源（例如：共用裝置或是共用記憶體）的程式片段，而這些共用資源有無法同時被多個執行緒存取的特性。
+
+
+14. gcc的參數裡面加上-l代表link的意思，請問static library跟dynamic library的差異？
+
+靜態函式庫是把整個Library包進去執行檔，因此可以保證到不同機器環境下執行，也不會因為少了這個函式庫導致無法執行檔案，但其缺點是檔案會比較大，假如大部分檔案都需要用到相同的函式庫，但全部都使用靜態連結的方式，那這樣非常的佔空間資源
+
+動態連結函式庫的好處，就是可以讓多個執行檔案，同時連結使用，可以減少佔空間，但是卻容易發生如果Library的版本不同，會導致連結執行錯誤。
+使用動態連結機制時，函式庫可以先不需要被連結進來，而是在需要的時候才透過動態連結器 (Dynamic Linker) 尋找並連結函式庫，這種方式可以不用載入全部的程式，因此可以節省記憶體。當很多執行中的程式共用到函式庫時，動態連結所節省的記憶體數量就相當可觀。
+
+
 白板題
 1. 寫一個swap？傳變數進swap時是call by value還是call by reference？
 
