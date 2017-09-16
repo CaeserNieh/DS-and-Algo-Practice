@@ -9,6 +9,8 @@
 void question1();
 void question2();
 int strcpp(const char *source, const char *dest);
+void question4();
+
 
 int main(void)
 {
@@ -22,11 +24,17 @@ int main(void)
 	char *ptr_a,*ptr_b;
 	ptr_a = str_a;
 	ptr_b = str_b;
+	
+	//printf("c : %d\n",*(ptr_a+1));
+	// 也可以這樣看char每一格裏面的值，只是說如果要讀string可以直接印ptr_a
+	//printf("String : %s\n",ptr_a);
 
 	temp_q3 = strcpp(ptr_a,ptr_b);
 	//return 負數  因為str_a > str_b 有大寫
 	printf("%d\n\n", temp_q3);
 
+	question4();
+	
 	return 0;
 }
 
@@ -98,5 +106,22 @@ int strcpp( const char *source, const char *dest){
 	return 0;
 }
 
+/*
+a[1] =*(a+1) =* (p+1) = *(p_ar+1)
+int *p_ar =  (int*)(&a)
+*/
+void question4(){
+	printf("Question4 !!!!\n");
+	int a[5] = {1,2,3,4,5};
+//	int *p = a;
+	int *p_ar = (int*)(&a+1);
+	printf("%p\n",a);
+	printf("%p\n",&a);
+	printf("%p\n",&a+1);
+	printf("p_ar:0x%0x\n",&(p_ar));
+	printf("p_ar:%p\n",*(p_ar));
+	printf("p_ar:%d\n",*(p_ar));
+	printf("p_ar:%p\n",&a+1);
 
+}
 
