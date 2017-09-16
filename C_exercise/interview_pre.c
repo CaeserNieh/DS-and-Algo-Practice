@@ -71,6 +71,10 @@ void question2(){
 }
 
 
+/*
+參考 : 
+https://dotblogs.com.tw/ace_dream/2016/01/07/strcmp_strncmp
+*/
 int strcpp( const char *source, const char *dest){
 	/*晨星考題  實作strcmp  function*/
 	printf("Question 3 !!!\n");
