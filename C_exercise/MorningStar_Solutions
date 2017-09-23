@@ -169,10 +169,10 @@ a的值不能更動
 const int *p = &a;
 p可改 a不能
 
-int *p const = &a;
+int * const p = &a;
 p不能改 a可
 
-int const *a const;
+int const * const a;
 p不能改 a不能改
 
 
