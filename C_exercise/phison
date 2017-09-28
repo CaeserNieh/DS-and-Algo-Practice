@@ -1,0 +1,79 @@
+
+
+1.
+解釋 RISC CISC : 
+
+RISC : 是簡單指令集。
+優點 : 
+1. 指令長度固定，方便CPU decode  簡化解碼器的設計。
+2. 因為指令長度的固定，所以更能受益於 pipeline 所帶來的效能提升
+3. RISC 處理器有的特色，就是與 CISC 相比，它擁有大量的暫存器，因為指令簡單無法一次完成，所以需要大量的暫存器
+
+缺點 : 
+1. 指令少
+2. 指令功能單一，無法一次完成需要的操作
+3. 程式變長，代表著讀取工作變得繁重，需要更多的時間將指令從記憶體載入至處理器內。
+
+CISC : 複雜指令集 。
+優點 : 
+1. 單一指令可以執行許多操作
+2. 指令數目多 and 複雜
+
+缺點 :
+1. 指令長度不一，所以decode複雜  而且 pipeline 效能也比較無法大幅提升
+2. 指令多，大部分反而用到的時間不多，執行時間難以估計
+
+
+2. 
+請舉出以下三者的實例，greedy algorithm, heuristic algorithm, brute-force algorithm
+greedy algorithm : 
+01背包問題，或是找零問題 
+arr1 = {1,2,3}
+arr2 = {4,5,6} 
+挑出2數總和為9  
+
+heuristic algorithm : 
+GA algorithm  基因演算法  退火法 (SA)
+
+brute-force algorithm : 
+需要枚舉出所有可能的情況 就可以用 brute-force 
+第一種題目可以用
+
+3. 
+說明ALU、CU、PMU、memory-mapped IO
+
+ALU : 算術邏輯單元，是中央處理器的執行單元，是所有中央處理器的核心組成部分，由及閘和或閘構成的算數邏輯單元，主要功能是進行二進位的算術運算
+
+CU : 控制單元
+有時為CPU一部分，有時安裝於CPU外部，負責指揮CPU工作。通過該裝置的運行來控制其他裝置的活動
+
+PMU : 
+現在它們都被集成到手機的電源管理單元(PMU)中，這樣可實現更高的電源轉換效率和更低功耗，
+
+I/O mapped I/O(port-mapped I/O或Direct I/O)
+
+I/O與memory均擁有自己的記憶體空間
+需要特別的指令來處理I/O
+
+好處是完全不用考慮記憶體空間被I/O佔用，缺點需要額外的指令專門處理I/O存取。
+
+memory-mapped IO : 
+
+I/O與memory共用記憶體空間
+不需要特別指令來處理I/O
+其實Memory mapped I/O只是將I/O的port或memory 映射(mapping)到記憶體位址(memory address)上，
+
+其好處就是可以把I/O
+存取直接當成存取記憶體來用，缺點是有映射到的區域原則上就不能放真正的記憶體。
+
+4. 
+用C寫出swap和sort : 
+
+
+
+5. 
+用C寫出1累加到100 : 
+
+6.
+請舉出hash table的生活實例 :
+search engine 
