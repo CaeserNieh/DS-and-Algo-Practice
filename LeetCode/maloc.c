@@ -13,6 +13,7 @@ int main(void){
 	for(i = 0;i < n;i++){
 		ar[i] = "Test";
 	}
+	printf("%d\n",sizeof(ar)/sizeof(char *));
 	printf("%s",*(ar+2));
 
 
